@@ -2,6 +2,8 @@ import "dotenv/config"
 import express from "express";
 import AppDataSource from "./shared/typeorm/data-source";
 import routes from "./shared/routes";
+import 'reflect-metadata';
+
 
 const app = express();
 
