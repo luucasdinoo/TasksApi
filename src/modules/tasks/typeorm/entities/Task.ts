@@ -12,8 +12,8 @@ import { Category } from '../../../categories/typeorm/entities/Category';
   
   @Entity('tasks')
   export class Task {
-    @PrimaryGeneratedColumn('uuid')
-    id: string;
+    @PrimaryGeneratedColumn('increment')
+    id: number;
   
     @Column({ type: 'varchar', length: 255, unique: true })
     title: string;
@@ -28,10 +28,10 @@ import { Category } from '../../../categories/typeorm/entities/Category';
     status: string;
   
     @ManyToOne(() => User, user => user.tasks)
-    user: User;
+    user_id: User;
 
     @ManyToOne(() => Category, (category) => category.tasks)
-    category: Category;
+    categoryId: Category;
   
     @CreateDateColumn({ name: 'created_at' })
     createdAt: Date;

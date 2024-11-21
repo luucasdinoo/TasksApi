@@ -34,14 +34,17 @@ class UsersRepository {
         const user =  await this.repository.findOne({
             where: {
                 id,
-            }
+            },
+            relations: ['tasks'],
         })
 
         return user;
     }
 
     async findUsers(){
-        return this.repository.find()
+        return this.repository.find({
+            relations: ['tasks'],
+        })
     }
 
     async deleteUser(id: number): Promise<void> {

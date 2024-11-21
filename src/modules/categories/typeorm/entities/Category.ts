@@ -11,7 +11,7 @@ export class Category {
 @Column({unique: true})
   name: string;
 
-  @OneToMany(() => Task, (task) => task.category)
+  @OneToMany(() => Task, (task) => task.categoryId)
   tasks: Task[];
 
 
