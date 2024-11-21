@@ -24,7 +24,9 @@ export default class TasksRepository {
    }
    
    async findTasks(): Promise<Task[]>{
-    return await this.repository.find();
+    return await this.repository.find({
+      relations: ['user_id' , 'categoryId']
+    });
    }
 
    async findById(id: number): Promise<Task>{
