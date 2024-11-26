@@ -3,13 +3,10 @@ import 'dotenv/config';
 
 const AppDataSource = new DataSource({
   type: 'postgres',
-  database: 'tasks_db',
-  port: 5432,
-  username: 'postgres',
-  password: 'docker',
-  entities: ['./src/modules/**/typeorm/entities/*.ts'],
-  migrations: ['src/shared/typeorm/migrations/*.ts'],
-  synchronize: true,
+  url: process.env.DATABASE_URL,
+  entities: [process.env.ENTITIES_DB],
+  migrations: [process.env.MIGRATIONS_DB],
+  synchronize: false,
   logging: false,
 });
 

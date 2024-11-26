@@ -8,15 +8,14 @@ import {
 } from 'typeorm';
 import { Task } from '../../../tasks/typeorm/entities/Task';
 
-export interface IUser{
-    id: number;
-    email: string;
-    username: string;
-    password: string;
-    created_at: Date;
-    updated_at: Date;
+export interface IUser {
+  id: number;
+  email: string;
+  username: string;
+  password: string;
+  created_at: Date;
+  updated_at: Date;
 }
-
 
 @Entity()
 export class User {
@@ -31,8 +30,8 @@ export class User {
 
   @Column({ nullable: false })
   password: string;
-  
-  @OneToMany(() => Task, task => task.user_id)
+
+  @OneToMany(() => Task, (task) => task.user_id)
   tasks: Task[];
 
   @CreateDateColumn({
